@@ -4,6 +4,7 @@ import 'package:foodcafe/src/features/apiConstants.dart';
 import 'package:foodcafe/src/utils/color.dart';
 import 'package:http/http.dart' as http;
 
+// ignore: must_be_immutable
 class ToggleSwitch extends StatefulWidget {
   bool status;
   String? itemId;
@@ -68,7 +69,7 @@ class _ToggleSwitchState extends State<ToggleSwitch> {
           Container(
             margin: EdgeInsets.only(top: 4),
             child: Text(
-              widget.status! ? 'Available' : "Unavailable",
+              widget.status ? 'Available' : "Unavailable",
               style: TextStyle(
                 color: Color(0xFF222222),
                 fontSize: 12,

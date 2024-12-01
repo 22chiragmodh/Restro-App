@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class HomeCard extends StatelessWidget {
   List<dynamic>? orderHistory;
   HomeCard({super.key, this.orderHistory});

@@ -64,9 +64,6 @@ class _HistoryScreenState extends State<HistoryScreen>
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-
-    double tabWidth = width / 5;
     return Column(
       children: [
         Container(

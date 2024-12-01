@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
         }).toList();
 
         // Filter the list based on the "status" field
-        int totalorders = orderList.length;
+
         double totalSales = 0.0;
         for (var order in todayOrders) {
           for (var item in order['items']) {

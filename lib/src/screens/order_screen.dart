@@ -4,13 +4,11 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:foodcafe/src/features/apiConstants.dart';
-import 'package:foodcafe/src/features/orderlengthProvider.dart';
-import 'package:foodcafe/src/food.dart';
+
 import 'package:foodcafe/src/utils/color.dart';
 import 'package:foodcafe/src/widgets/ordercard.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:provider/provider.dart';
 
 class OrdersScreen extends StatefulWidget {
   const OrdersScreen({super.key});

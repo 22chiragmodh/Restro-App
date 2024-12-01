@@ -5,6 +5,7 @@ import 'package:foodcafe/src/widgets/orderItemcard.dart';
 import 'package:foodcafe/src/widgets/orderModebox.dart';
 import 'package:intl/intl.dart';
 
+// ignore: must_be_immutable
 class Ordercard extends StatefulWidget {
   final String status;
   final bool isHistory;

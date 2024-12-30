@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodcafe/src/utils/color.dart';
 import 'package:foodcafe/src/widgets/customButton.dart';
+import 'package:foodcafe/src/widgets/deliveryDetailsCard.dart';
 import 'package:foodcafe/src/widgets/orderItemcard.dart';
 import 'package:foodcafe/src/widgets/orderModebox.dart';
 import 'package:intl/intl.dart';
@@ -159,21 +160,21 @@ class _OrdercardState extends State<Ordercard> {
                     ],
                   ),
                 ),
-                Divider(
+                const Divider(
                   indent: 16,
                   endIndent: 16,
                   thickness: 1,
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 16),
+                  margin: const EdgeInsets.only(top: 16, bottom: 16),
                   // color: Colors.green,
                   height: 20,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(
-                        'Total (USD)',
+                      const Text(
+                        'Total (INR)',
                         style: TextStyle(
                           color: Color(0xFF222222),
                           fontSize: 16,
@@ -184,7 +185,7 @@ class _OrdercardState extends State<Ordercard> {
                       ),
                       Text(
                         '₹ $totalPrice',
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Color(0xFF222222),
                           fontSize: 16,
                           fontFamily: 'SF Pro',
@@ -195,6 +196,16 @@ class _OrdercardState extends State<Ordercard> {
                     ],
                   ),
                 ),
+                const Divider(
+                  indent: 16,
+                  endIndent: 16,
+                  thickness: 1,
+                ),
+                widget.orderItemList!['orderMode'] == "delivery"
+                    ? DeliveryDetailsCard()
+                    : const SizedBox(
+                        height: 0,
+                      )
               ],
             ),
           ),

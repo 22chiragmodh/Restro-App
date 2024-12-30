@@ -19,4 +19,5 @@ class OrderContainer {
   static Color unselected_tabColor = const Color(0xFF5E5E5E);
   static Color orderModeColor1 = const Color(0xFF008A05);
   static Color orderModeColor2 = const Color(0xFF004CC4);
+  static Color orderModeColor3 = const Color(0xFFA2845E);
 }

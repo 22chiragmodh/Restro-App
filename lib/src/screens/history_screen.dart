@@ -169,7 +169,7 @@ class _HistoryScreenState extends State<HistoryScreen>
                       placedAt.month == now.month;
                 }).toList();
                 return Container(
-                  height: MediaQuery.of(context).size.height - 220,
+                  height: MediaQuery.of(context).size.height - 240,
                   child: TabBarView(controller: _controller, children: [
                     //today orders
 
@@ -178,8 +178,8 @@ class _HistoryScreenState extends State<HistoryScreen>
                             child:
                                 SvgPicture.asset("assets/images/Empty-bro.svg"))
                         : Container(
-                            margin: EdgeInsets.only(bottom: 16),
-                            height: MediaQuery.of(context).size.height,
+                            // margin: EdgeInsets.only(bottom: 16),
+                            // height: MediaQuery.of(context).size.height,
                             child: ListView.builder(
                                 itemCount: todayOrders.length,
                                 itemBuilder: (context, index) {
@@ -199,7 +199,6 @@ class _HistoryScreenState extends State<HistoryScreen>
                                 SvgPicture.asset("assets/images/Empty-bro.svg"))
                         : Container(
                             margin: EdgeInsets.only(bottom: 16),
-                            height: MediaQuery.of(context).size.height,
                             child: ListView.builder(
                                 itemCount: yesterdayOrders.length,
                                 itemBuilder: (context, index) {

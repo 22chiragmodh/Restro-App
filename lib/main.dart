@@ -1,4 +1,5 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -13,7 +14,8 @@ import 'package:provider/provider.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  FirebaseMessaging.onBackgroundMessage(backgroundHandler);
+
+  // FirebaseMessaging.onBackgroundMessage(backgroundHandler);
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     systemNavigationBarColor: MenuContainer.background,
     statusBarColor: StatusTheme.statusbarcolor,

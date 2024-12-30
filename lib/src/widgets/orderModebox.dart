@@ -14,14 +14,20 @@ class OrderModeBox extends StatelessWidget {
       decoration: ShapeDecoration(
         color: orderMode == "dinein"
             ? OrderContainer.orderModeColor2
-            : OrderContainer.orderModeColor1,
+            : orderMode == "delivery"
+                ? OrderContainer.orderModeColor3
+                : OrderContainer.orderModeColor1,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(43),
         ),
       ),
       child: Center(
         child: Text(
-          orderMode == "dinein" ? "Dine In" : "Take away",
+          orderMode == "dinein"
+              ? "Table"
+              : orderMode == "delivery"
+                  ? "Delivery"
+                  : "Parcel",
           style: TextStyle(
             color: Colors.white,
             fontSize: 14,

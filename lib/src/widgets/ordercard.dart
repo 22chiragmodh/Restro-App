@@ -202,7 +202,10 @@ class _OrdercardState extends State<Ordercard> {
                   thickness: 1,
                 ),
                 widget.orderItemList!['orderMode'] == "delivery"
-                    ? DeliveryDetailsCard()
+                    ? DeliveryDetailsCard(
+                        location: widget.orderItemList!['metadata']['location'],
+                        phone: widget.orderItemList!['metadata']['phone'],
+                      )
                     : const SizedBox(
                         height: 0,
                       )

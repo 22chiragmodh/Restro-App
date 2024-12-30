@@ -15,7 +15,7 @@ class HomeCard extends StatelessWidget {
       avg = orderHistory![1] / orderHistory![0];
     }
     return SizedBox(
-      width: 175,
+      width: 180,
       height: 100,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

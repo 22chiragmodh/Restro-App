@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 
 class DeliveryDetailsCard extends StatelessWidget {
-  const DeliveryDetailsCard({super.key});
+  final String location;
+  final String phone;
+  DeliveryDetailsCard({super.key, required this.location, required this.phone});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Divider(
-          indent: 16,
-          endIndent: 16,
-          thickness: 1,
-        ),
         Container(
           // color: Colors.red,
           margin: EdgeInsets.only(top: 16),
@@ -46,7 +43,7 @@ class DeliveryDetailsCard extends StatelessWidget {
                               fontFamily: 'SF Pro',
                               fontWeight: FontWeight.w400,
                             )),
-                        Text("BH-3",
+                        Text(location,
                             style: TextStyle(
                               color: Color(0xFF222222),
                               fontSize: 16,
@@ -68,7 +65,7 @@ class DeliveryDetailsCard extends StatelessWidget {
                               fontFamily: 'SF Pro',
                               fontWeight: FontWeight.w400,
                             )),
-                        Text("9510523100",
+                        Text(phone,
                             style: TextStyle(
                               color: Color(0xFF222222),
                               fontSize: 16,

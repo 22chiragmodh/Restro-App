@@ -47,16 +47,24 @@ class _MenuScreenState extends State<MenuScreen> {
 // get all unique categories
         categories = getUniqueCategories(menuList);
 
-        for (var category in categories) {
-          categoryStatusMap[category] = prefs.getBool(category) ?? true;
-        }
+        // for (var category in categories) {
+        //   print(category);
+        //   // categoryStatusMap[category] = prefs.getBool(category) ?? true;
+        // }
 
 //seprate items basis on categories
         for (var category in categories) {
           itemsByCategory[category] =
               menuList.where((item) => item.category == category).toList();
         }
-        print(itemsByCategory);
+
+        for (var category in categories) {
+          bool areAllItemsUnavailable = itemsByCategory[category]!
+              .every((item) => item.isAvailable == false);
+
+          categoryStatusMap[category] = !areAllItemsUnavailable;
+        }
+
         setState(() {
           isDataloading = false;
         });
@@ -223,8 +231,7 @@ class _MenuScreenState extends State<MenuScreen> {
                                               valueFontSize: 14.0,
                                               toggleSize: 35.0,
                                               value:
-                                                  categoryStatusMap[category] ??
-                                                      true,
+                                                  categoryStatusMap[category]!,
                                               borderRadius: 30.0,
                                               padding: 8.0,
                                               // showOnOff: true,
@@ -239,8 +246,10 @@ class _MenuScreenState extends State<MenuScreen> {
                                                       content: Text(
                                                           "Menu status updated Successfully")),
                                                 );
+                                                print("value bfore $val");
                                                 await updateCategoryMenu(
                                                     val, category);
+                                                print("value after $val");
                                               },
                                             ),
                                             Container(

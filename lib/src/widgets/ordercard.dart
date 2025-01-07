@@ -184,7 +184,7 @@ class _OrdercardState extends State<Ordercard> {
                         ),
                       ),
                       Text(
-                        '₹ $totalPrice',
+                        '₹ ${widget.orderItemList!['cost'] ?? totalPrice}',
                         style: const TextStyle(
                           color: Color(0xFF222222),
                           fontSize: 16,

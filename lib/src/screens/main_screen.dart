@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:foodcafe/src/features/apiConstants.dart';
-import 'package:foodcafe/src/screens/feedback_screen.dart';
+// import 'package:foodcafe/src/screens/feedback_screen.dart';
 import 'package:foodcafe/src/screens/history_screen.dart';
 import 'package:foodcafe/src/screens/home_screen.dart';
 import 'package:foodcafe/src/screens/menu_screen.dart';
@@ -36,9 +36,9 @@ class _MainScreenState extends State<MainScreen> {
     OrdersScreen(
       key: PageStorageKey('Page3'),
     ),
-    FeedbackScreen(
-      key: PageStorageKey('Page4'),
-    ),
+    // FeedbackScreen(
+    //   key: PageStorageKey('Page4'),
+    // ),
     HistoryScreen(
       key: PageStorageKey('Page5'),
     ),
@@ -178,15 +178,15 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 label: 'Orders'.tr,
               ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  "assets/images/HandPalm.svg",
-                  color: _selectedIndex == 3
-                      ? MenuContainer.bottom_nav_selectedtextcolor
-                      : MenuContainer.bottom_nav_unselectedtextcolor,
-                ),
-                label: 'Feedback'.tr,
-              ),
+              // BottomNavigationBarItem(
+              //   icon: SvgPicture.asset(
+              //     "assets/images/HandPalm.svg",
+              //     color: _selectedIndex == 3
+              //         ? MenuContainer.bottom_nav_selectedtextcolor
+              //         : MenuContainer.bottom_nav_unselectedtextcolor,
+              //   ),
+              //   label: 'Feedback'.tr,
+              // ),
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(
                   "assets/images/ClockCounterClockwise.svg",

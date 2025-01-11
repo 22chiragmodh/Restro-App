@@ -52,7 +52,7 @@ class OrderItemCard extends StatelessWidget {
           ),
         ),
         Text(
-          '₹ ${items['price']}',
+          '₹ ${(items['price'] * items['quantity']).toStringAsFixed(2)}',
           style: TextStyle(
             color: Color(0xFF5E5E5E),
             fontSize: 14,

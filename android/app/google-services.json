@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "664962660853",
-    "project_id": "foodapp-bf178",
-    "storage_bucket": "foodapp-bf178.appspot.com"
+    "project_number": "209841588438",
+    "project_id": "foodapp23",
+    "storage_bucket": "foodapp23.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:664962660853:android:d8f9aff21ceec2c58c88bc",
+        "mobilesdk_app_id": "1:209841588438:android:4e0df983f2800c31b56177",
         "android_client_info": {
           "package_name": "com.example.foodcafe"
         }
       },
       "oauth_client": [
         {
-          "client_id": "664962660853-4iq0mrb5vvpmqnqfak37jsfm724sps86.apps.googleusercontent.com",
+          "client_id": "209841588438-6gua6rtmqdtlsstjg720vpf6tolu6b56.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.foodcafe",
+            "certificate_hash": "340bf89771c80ab492797b99488b456d74b5fc28"
+          }
+        },
+        {
+          "client_id": "209841588438-59ck2ok3oaoifr9m6hetc1afcc722k3g.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCzA4F0oPcjmXLXgGV-l1l5eqloUi9thwY"
+          "current_key": "AIzaSyCevbNzlRp6pKpnTZQ8INeHTbdS0dG6bWM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "664962660853-2vofdb84jc1k2ghqdv7aj14kfhld2sne.apps.googleusercontent.com",
+              "client_id": "209841588438-59ck2ok3oaoifr9m6hetc1afcc722k3g.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
@@ -36,35 +44,27 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:664962660853:android:6183bc476fd4b1d38c88bc",
+        "mobilesdk_app_id": "1:209841588438:android:fe46abc4b2e9989db56177",
         "android_client_info": {
-          "package_name": "com.winterproj23"
+          "package_name": "com.example.mobilicis"
         }
       },
       "oauth_client": [
         {
-          "client_id": "664962660853-9b4q1ghbsogd2fg75rfu33j38thnhjuv.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.winterproj23",
-            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
-          }
-        },
-        {
-          "client_id": "664962660853-4iq0mrb5vvpmqnqfak37jsfm724sps86.apps.googleusercontent.com",
+          "client_id": "209841588438-59ck2ok3oaoifr9m6hetc1afcc722k3g.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCzA4F0oPcjmXLXgGV-l1l5eqloUi9thwY"
+          "current_key": "AIzaSyCevbNzlRp6pKpnTZQ8INeHTbdS0dG6bWM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "664962660853-2vofdb84jc1k2ghqdv7aj14kfhld2sne.apps.googleusercontent.com",
+              "client_id": "209841588438-59ck2ok3oaoifr9m6hetc1afcc722k3g.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

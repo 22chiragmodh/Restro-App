@@ -31,8 +31,6 @@ class _MenuScreenState extends State<MenuScreen> {
   ExpandableController? controller;
   TextEditingController searchController = TextEditingController();
   Future<void> getMenu() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-
     try {
       final response = await http
           .get(Uri.parse("${ApiConstants.baseUrl}/menu/restro"), headers: {

@@ -1,9 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
 
+// import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:foodcafe/src/features/apiConstants.dart';
+// import 'package:foodcafe/src/services/firebase_messaging_service.dart';
 import 'package:foodcafe/src/utils/color.dart';
 import 'package:foodcafe/src/widgets/homecard.dart';
 import 'package:http/http.dart' as http;
@@ -17,6 +19,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  // final FirebaseMessagingService _messagingService = FirebaseMessagingService();
+  // String _notificationData = 'No notification received yet';
+
   List<Map<String, dynamic>> orderList = [];
   late Timer _timer;
 
@@ -71,9 +76,20 @@ class _HomeScreenState extends State<HomeScreen> {
     return [];
   }
 
+  // void _listenForNotifications() {
+  //   FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+  //     setState(() {
+  //       _notificationData = message.data.toString();
+  //     });
+  //     print('Received notification data: $_notificationData');
+  //   });
+  // }
+
   @override
   void initState() {
     super.initState();
+    // _messagingService.initialize();
+    // _listenForNotifications();
     _timer = Timer.periodic(const Duration(minutes: 5), (timer) {
       setState(() {
         getOrder();
@@ -162,7 +178,29 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: SvgPicture.asset("assets/images/rafiki.svg"),
                       ),
                     ]),
-              )
+              ),
+              // Column(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: <Widget>[
+              //     Text('FCM Token:'),
+              //     SelectableText(
+              //         _messagingService.fcmToken ?? 'Token not available'),
+              //   ],
+              // ),
+              // Container(
+              //   margin: EdgeInsets.all(16),
+              //   child: Column(
+              //     crossAxisAlignment: CrossAxisAlignment.start,
+              //     children: [
+              //       Text(
+              //         'Latest Notification Data:',
+              //         style: TextStyle(fontWeight: FontWeight.bold),
+              //       ),
+              //       SizedBox(height: 8),
+              //       Text(_notificationData),
+              //     ],
+              //   ),
+              // ),
             ],
           );
         }

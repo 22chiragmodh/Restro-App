@@ -33,10 +33,7 @@ void main() async {
   }
 
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-  String? token = await FirebaseMessaging.instance.getToken();
-  if (token != null) {
-    await sendFCMTokenToServer(token);
-  }
+
   runApp(const MyApp());
 }
 
@@ -69,8 +66,56 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   print("Handling a background message: ${message.messageId}");
 }
 
-class MyApp extends StatelessWidget {
+Future<void> setupFirebaseMessaging() async {
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
+
+  NotificationSettings settings = await messaging.requestPermission(
+    alert: true,
+    announcement: false,
+    badge: true,
+    carPlay: false,
+    criticalAlert: false,
+    provisional: false,
+    sound: true,
+  );
+
+  if (settings.authorizationStatus == AuthorizationStatus.authorized ||
+      settings.authorizationStatus == AuthorizationStatus.provisional) {
+    print('User granted permission');
+
+    String? token = await FirebaseMessaging.instance.getToken();
+    if (token != null) {
+      print("FCM Token: $token");
+      await sendFCMTokenToServer(token);
+    }
+
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      print("Received foreground message: ${message.notification?.title}");
+      // Handle foreground message
+    });
+
+    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+      print("Opened app from notification: ${message.notification?.title}");
+      // Handle notification tap when app is in background
+    });
+  } else {
+    print('User declined or has not accepted permission');
+  }
+}
+
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+    setupFirebaseMessaging();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,13 +123,13 @@ class MyApp extends StatelessWidget {
       create: (context) => OrderLengthNotifier(),
       child: GetMaterialApp(
           translations: TranslationsApp(),
-          locale: Locale('en', 'US'),
+          locale: const Locale('en', 'US'),
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             fontFamily: 'SF Pro',
             scaffoldBackgroundColor: MenuContainer.background,
           ),
-          home: MainScreen()),
+          home: const MainScreen()),
     );
   }
 }

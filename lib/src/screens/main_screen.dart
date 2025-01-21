@@ -24,6 +24,7 @@ class _MainScreenState extends State<MainScreen> {
   bool status = true;
   int _selectedIndex = 0;
   bool restroStatus = false;
+  bool deliveryStatus = false;
   bool isTranslatedToHindi = false;
 
   final List<Widget> pages = [
@@ -113,6 +114,27 @@ class _MainScreenState extends State<MainScreen> {
       if (response.statusCode == 200) {
         ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text("Restro Status updated Successfully")));
+      }
+    } catch (e) {
+      return Future.error(e.toString());
+    }
+  }
+
+  Future<void> updateDeliveryStatus(bool updateStatus) async {
+    try {
+      final response = await http.put(
+          Uri.parse("${ApiConstants.baseUrl}/restaurant/delivery-status"),
+          headers: {
+            // "Content-Type": "application/json",
+            'Authorization': 'Bearer ${ApiConstants.authToken}',
+          },
+          body: {
+            "isDeliveryEnabled": "$updateStatus"
+          });
+
+      if (response.statusCode == 200) {
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text("Delivery Status updated Successfully")));
       }
     } catch (e) {
       return Future.error(e.toString());
@@ -249,16 +271,47 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                 ),
                 actions: [
-                  IconButton(
-                      icon: SvgPicture.asset("assets/images/Translate.svg",
-                          color: translateIconColor),
-                      onPressed: _toggleLanguage),
-                  IconButton(
-                      icon: SvgPicture.asset("assets/images/Bell.svg"),
-                      onPressed: () {}),
-                  IconButton(
-                      icon: SvgPicture.asset("assets/images/UserCircle.svg"),
-                      onPressed: () {}),
+                  Container(
+                    margin: EdgeInsets.only(right: 16),
+                    child: FlutterSwitch(
+                      activeIcon: Icon(
+                        Icons.check,
+                        color: MenuContainer.toogle_activecolor,
+                      ),
+                      width: 110.0,
+                      activeText: "Delivery",
+                      activeColor: MenuContainer.toogle_activecolor,
+                      inactiveColor: MenuContainer.toogle_inactivecolor,
+                      activeTextColor: MenuContainer.toogle_textcolor,
+                      inactiveTextColor: MenuContainer.toogle_textcolor,
+                      activeTextFontWeight: FontWeight.w500,
+                      inactiveTextFontWeight: FontWeight.w500,
+                      inactiveText: "Delivery",
+                      showOnOff: true,
+                      valueFontSize: 14.0,
+                      toggleSize: 40.0,
+                      value: deliveryStatus,
+                      borderRadius: 30.0,
+                      padding: 8.0,
+                      // showOnOff: true,
+                      onToggle: (val) async {
+                        await updateDeliveryStatus(val);
+                        setState(() {
+                          deliveryStatus = val;
+                        });
+                      },
+                    ),
+                  ),
+                  // IconButton(
+                  //     icon: SvgPicture.asset("assets/images/Translate.svg",
+                  //         color: translateIconColor),
+                  //     onPressed: _toggleLanguage),
+                  // IconButton(
+                  //     icon: SvgPicture.asset("assets/images/Bell.svg"),
+                  //     onPressed: () {}),
+                  // IconButton(
+                  //     icon: SvgPicture.asset("assets/images/UserCircle.svg"),
+                  //     onPressed: () {}),
                 ],
               ),
             )),

@@ -300,6 +300,7 @@ class _MainScreenState extends State<MainScreen> {
                           deliveryStatus = val;
                         });
                       },
+                      disabled: !restroStatus,
                     ),
                   ),
                   // IconButton(

@@ -85,14 +85,12 @@ class _MainScreenState extends State<MainScreen> {
       if (response.statusCode == 200) {
         // Extract the "data" list from parsedJson
         Map<String, dynamic> parsedJson = jsonDecode(response.body);
+        // print(parsedJson);
+
         setState(() {
           restroStatus = parsedJson['isOpen'];
+          deliveryStatus = parsedJson['isDeliveryEnabled'];
         });
-        print(restroStatus);
-
-        // setState(() {
-        //   isDataloading = false;
-        // });
       }
     } catch (e) {
       return Future.error(e.toString());
@@ -143,7 +141,7 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Color translateIconColor = isTranslatedToHindi ? Colors.red : Colors.black;
+    // Color translateIconColor = isTranslatedToHindi ? Colors.red : Colors.black;
     return Scaffold(
         bottomNavigationBar: Container(
           decoration: const BoxDecoration(

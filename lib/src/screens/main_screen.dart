@@ -85,7 +85,7 @@ class _MainScreenState extends State<MainScreen> {
       if (response.statusCode == 200) {
         // Extract the "data" list from parsedJson
         Map<String, dynamic> parsedJson = jsonDecode(response.body);
-        // print(parsedJson);
+        print(parsedJson['isDeliveryEnabled']);
 
         setState(() {
           restroStatus = parsedJson['isOpen'];
@@ -262,6 +262,12 @@ class _MainScreenState extends State<MainScreen> {
                     // showOnOff: true,
                     onToggle: (val) async {
                       await updateRestaurantStatus(val);
+                      if (!val && deliveryStatus) {
+                        await updateDeliveryStatus(false);
+                        setState(() {
+                          deliveryStatus = false;
+                        });
+                      }
                       setState(() {
                         restroStatus = val;
                       });
